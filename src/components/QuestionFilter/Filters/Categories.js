@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Categories = () => {
+const Categories = ({ setCategory }) => {
+
+    const onCategoryChange = e => {
+        setCategory(e.target.value)
+    }
+
     return (
-        <select id="categories" name="categories">
+        <select id="categories" name="categories" onChange={onCategoryChange}>
             <option value="Any">Any</option>
             <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>

@@ -9,6 +9,7 @@ export const useDataFetch = (url, dependencies) => {
         setIsLoading(true)
 
         console.log('Fetching questions...')
+        console.log(url)
         fetch(url)
             .then(response => response.json())
             .then(data => {
