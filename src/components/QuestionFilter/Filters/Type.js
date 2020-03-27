@@ -7,11 +7,13 @@ const Type = ({ setType }) => {
     }
 
     return (
-        <select id="categories" name="categories" onChange={onTypeChange}>
-            <option value="Any">Any</option>
-            <option value="multiple">Multiple Choice</option>
-            <option value="boolean">True / False</option>
-        </select>
+        <article className="filterContainer">
+            <select id="categories" name="categories" onChange={onTypeChange}>
+                <option value="Any">Any Type</option>
+                <option value="multiple">Multiple Choice</option>
+                <option value="boolean">True / False</option>
+            </select>
+        </article>
     )
 }
 

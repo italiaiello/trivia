@@ -1,6 +1,39 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+input, select, button {
+  outline: none;
+}
+
+button {
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
 
 /* Question Filter */
 
@@ -12,4 +45,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+input, .filterContainer {
+  width: 50%;
+  height: 50px;
+  padding: 0 30px;
+  border: none;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.filterContainer select {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: none;
+}
+
+.errorMessage {
+
+}
+
+.filterButton {
+  width: 25%;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: greenyellow;
 }
