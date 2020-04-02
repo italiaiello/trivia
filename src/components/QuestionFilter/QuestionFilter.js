@@ -42,6 +42,7 @@ const QuestionFilter = () => {
             {
                 route === 'home' ?
                 <article>
+                    <h2>What kind of questions would you like?</h2>
                     <form className="questionFilter" onSubmit={checkNumQuestions}>
                         <input  type="text" 
                                 placeholder="Number of questions (max 50)" 

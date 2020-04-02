@@ -18,6 +18,8 @@ const Quiz = ({ numQuestions, category, difficulty, type }) => {
     if (questions.length) {
         questions[index].question = questions[index].question.replace(/&quot;/g,'"')
         questions[index].question = questions[index].question.replace(/&#039;/g,"'")
+        questions[index].question = questions[index].question.replace(/&eacute;/g,"é")
+        questions[index].question = questions[index].question.replace(/&Aacute;/g,"Á")
     }
     
     return (
@@ -28,7 +30,7 @@ const Quiz = ({ numQuestions, category, difficulty, type }) => {
                :
                 (   
                     questions.length &&
-                    <article>
+                    <article className="questionContainer">
                         <p>{questions[index].question}</p>
                         <article className="answers">
                             <Answers incorrectAnswers={questions[index].incorrect_answers} 

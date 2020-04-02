@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <h1>Trivia</h1>
       <div>
-        <h2>What kind of questions would you like?</h2>
         <QuestionFilter />
       </div>
     </div>

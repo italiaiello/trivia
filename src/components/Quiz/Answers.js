@@ -31,25 +31,45 @@ const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion }) => {
         }
     }
 
-    return(
+    if (incorrectAnswers.length) {
+        for (let i = 0; i < incorrectAnswers.length; i++) {
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&quot;/g,'"')
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&#039;/g,"'")
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&eacute;/g,"é")
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&Aacute;/g,"Á")
+        }
+    }
+
+    if (correctAnswer.length) {
+        correctAnswer = correctAnswer.replace(/&quot;/g,'"')
+        correctAnswer = correctAnswer.replace(/&#039;/g,"'")
+        correctAnswer = correctAnswer.replace(/&eacute;/g,"é")
+        correctAnswer = correctAnswer.replace(/&Aacute;/g,"Á")
+        correctAnswer = correctAnswer.replace(/&amp;/g,"&")
+    }
+
+    return (
         <article>
-            {
-                type === 'boolean' ?
-                <article>
-                    <button onClick={checkAnswer}>True</button>
-                    <button onClick={checkAnswer}>False</button>
-                </article>
-                :
-                (
-                    answers.map((answer, i) => {
-                        return (
-                            <article key={i}>
-                                <button onClick={checkAnswer}>{answer}</button>
-                            </article>
-                        )
-                    })
-                )
-            }
+            <article className="optionsContainer">
+                {
+                    type === 'boolean' ?
+                    <article className="boolean-option-container">
+                        <button className="boolean-option" onClick={checkAnswer}>True</button>
+                        <button className="boolean-option" onClick={checkAnswer}>False</button>
+                    </article>
+                    :
+                    (
+                        answers.map((answer, i) => {
+                            return (
+                                    <button key={i} 
+                                            className="multiple-option"
+                                            onClick={checkAnswer}>{answer}
+                                    </button>
+                            )
+                        })
+                    )
+                }
+            </article>
             {
                 isAnswerCorrect !== 'unanswered' &&
                 <AnswerResult isAnswerCorrect ={isAnswerCorrect} 
