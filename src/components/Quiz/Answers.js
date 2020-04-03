@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import AnswerResult from './AnswerResult'
 
-const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion }) => {
+const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion, numCorrectAnswers, setNumCorrectAnswers }) => {
 
     const answers = ['1', '2', '3', '4']
+    const [chosenAnswer, setChosenAnswer] = useState('')
 
     const getRandomInt = (max) => {
         return Math.floor(Math.random() * Math.floor(max));
@@ -25,10 +26,12 @@ const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion }) => {
 
     const checkAnswer = e => {
         if (e.target.textContent === correctAnswer) {
+            setNumCorrectAnswers(numCorrectAnswers + 1)
             setIsAnswerCorrect(true)
         } else {
             setIsAnswerCorrect(false)
         }
+        setChosenAnswer(e.target.textContent)
     }
 
     if (incorrectAnswers.length) {
@@ -72,9 +75,11 @@ const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion }) => {
             </article>
             {
                 isAnswerCorrect !== 'unanswered' &&
-                <AnswerResult isAnswerCorrect ={isAnswerCorrect} 
+                <AnswerResult isAnswerCorrect={isAnswerCorrect} 
                                 nextQuestion={nextQuestion} 
                                 setIsAnswerCorrect={setIsAnswerCorrect}
+                                chosenAnswer={chosenAnswer}
+                                correctAnswer={correctAnswer}
                 />
             }
         </article>

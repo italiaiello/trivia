@@ -2,11 +2,11 @@ import React from 'react'
 import CorrectIcon from '../../images/correct.svg'
 import WrongIcon from '../../images/wrong.svg'
 
-const AnswerResult = ({ isAnswerCorrect, nextQuestion, setIsAnswerCorrect }) => {
+const AnswerResult = ({ isAnswerCorrect, nextQuestion, setIsAnswerCorrect, chosenAnswer, correctAnswer }) => {
 
     console.log(isAnswerCorrect)
 
-    const goToNextQuestion = () => {
+    const goToNextQuestion = (e) => {
         nextQuestion()
         setIsAnswerCorrect('unanswered')
     }
@@ -17,17 +17,18 @@ const AnswerResult = ({ isAnswerCorrect, nextQuestion, setIsAnswerCorrect }) => 
                 isAnswerCorrect
                 ?
                 <article className="resultIconContainer">
-                    <p>That's correct!</p>
                     <figure className="resultIcon">
-                        <img src={CorrectIcon} alt="Thing" />
+                        <img src={CorrectIcon} alt="Correct answer icon" />
                     </figure>
+                    <p>{`${chosenAnswer} is correct, well done!`}</p>
                 </article>
                 :
                 <article className="resultIconContainer">
-                    <p>Sorry, wrong answer</p>
                     <figure className="resultIcon">
-                        <img src={WrongIcon} alt="Thing" />
+                        <img src={WrongIcon} alt="Wrong answer icon" />
                     </figure>
+                    <p>{`Sorry, ${chosenAnswer} is incorrect.`}</p>
+                    <p>{`The correct answer was ${correctAnswer}`}</p>
                 </article>
             }
             <button onClick={goToNextQuestion}>Next Question</button>

@@ -152,12 +152,24 @@ input, .filterContainer {
 .resultIconContainer {
   width: 60%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
+.resultIconContainer p {
+  margin: 5px 0;
+}
+
+.resultIconContainer p:last-child {
+  margin-bottom: 10px;
+}
+
+
+
 .resultIcon {
-  width: 20px;
+  width: 30px;
   height: auto;
   margin: auto 10px;
 }
