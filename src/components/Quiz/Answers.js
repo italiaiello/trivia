@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import AnswerResult from './AnswerResult'
 
-const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion, numCorrectAnswers, setNumCorrectAnswers }) => {
+const Answers = ({  incorrectAnswers, 
+                    correctAnswer, 
+                    type, 
+                    nextQuestion, 
+                    numCorrectAnswers, 
+                    setNumCorrectAnswers, 
+                    chosenAnswer,
+                    setChosenAnswer
+            }) => {
 
     const answers = ['1', '2', '3', '4']
-    const [chosenAnswer, setChosenAnswer] = useState('')
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState('unanswered')
+    
 
     const getRandomInt = (max) => {
         return Math.floor(Math.random() * Math.floor(max));
@@ -22,18 +31,6 @@ const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion, numCorre
         }
     }
 
-    const [isAnswerCorrect, setIsAnswerCorrect] = useState('unanswered')
-
-    const checkAnswer = e => {
-        if (e.target.textContent === correctAnswer) {
-            setNumCorrectAnswers(numCorrectAnswers + 1)
-            setIsAnswerCorrect(true)
-        } else {
-            setIsAnswerCorrect(false)
-        }
-        setChosenAnswer(e.target.textContent)
-    }
-
     if (incorrectAnswers.length) {
         for (let i = 0; i < incorrectAnswers.length; i++) {
             incorrectAnswers[i] = incorrectAnswers[i].replace(/&quot;/g,'"')
@@ -49,6 +46,18 @@ const Answers = ({ incorrectAnswers, correctAnswer, type, nextQuestion, numCorre
         correctAnswer = correctAnswer.replace(/&eacute;/g,"é")
         correctAnswer = correctAnswer.replace(/&Aacute;/g,"Á")
         correctAnswer = correctAnswer.replace(/&amp;/g,"&")
+    }
+
+    const checkAnswer = e => {
+        if (chosenAnswer.length > 0) return
+
+        if (e.target.textContent === correctAnswer) {
+            setNumCorrectAnswers(numCorrectAnswers + 1)
+            setIsAnswerCorrect(true)
+        } else {
+            setIsAnswerCorrect(false)
+        }
+        setChosenAnswer(e.target.textContent)
     }
 
     return (

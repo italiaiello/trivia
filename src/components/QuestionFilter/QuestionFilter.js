@@ -29,7 +29,8 @@ const QuestionFilter = () => {
         e.preventDefault()
         if (numQuestions.toString().length === 0) {
             setIsFilterCorrect(false)
-        } else if (numQuestions === 0 || isNaN(numQuestions) || numQuestions > 50) {
+        } else if ( numQuestions === 0 || isNaN(numQuestions) || 
+                    numQuestions > 50 || numQuestions < 0) {
             setIsFilterCorrect(false)
         } else {
             setIsFilterCorrect(true)
@@ -51,10 +52,10 @@ const QuestionFilter = () => {
                         <Categories setCategory={setCategory} />
                         <Difficulty setDifficulty={setDifficulty} />
                         <Type setType={setType} />
+                        <button className="filterButton" type="submit">Submit</button>
                         <article className={isFilterCorrect ? "errorMessage hide" : "errorMessage show"}>
                             <p>Please enter a valid number of questions</p>
                         </article>
-                        <button className="filterButton" type="submit">Submit</button>
                     </form>
                 </article>
                 :
@@ -62,6 +63,7 @@ const QuestionFilter = () => {
                         category={category} 
                         difficulty={difficulty} 
                         type={type}
+                        onRouteChange={onRouteChange}
                 />
             }
         </section>

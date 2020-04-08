@@ -2,9 +2,12 @@ import React from 'react'
 import CorrectIcon from '../../images/correct.svg'
 import WrongIcon from '../../images/wrong.svg'
 
-const AnswerResult = ({ isAnswerCorrect, nextQuestion, setIsAnswerCorrect, chosenAnswer, correctAnswer }) => {
-
-    console.log(isAnswerCorrect)
+const AnswerResult = ({     isAnswerCorrect, 
+                            nextQuestion, 
+                            setIsAnswerCorrect, 
+                            chosenAnswer, 
+                            correctAnswer 
+                }) => {
 
     const goToNextQuestion = (e) => {
         nextQuestion()

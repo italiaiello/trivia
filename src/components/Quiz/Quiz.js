@@ -3,13 +3,14 @@ import { useDataFetch } from '../../hooks/displayQuestions'
 import Answers from './Answers'
 import QuizFinished from './QuizFinished'
 
-const Quiz = ({ numQuestions, category, difficulty, type }) => {
+const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
     
     const [isLoading, questions] = useDataFetch(`https://opentdb.com/api.php?amount=${numQuestions}${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)                                   
     const [index, setIndex] = useState(0)
     const [questionsRemaining, setQuestionsRemaining] = useState(numQuestions)
     const [numCorrectAnswers, setNumCorrectAnswers] = useState(0)
     const [isQuizFinished, setIsQuizFinished] = useState(false)
+    const [chosenAnswer, setChosenAnswer] = useState('')
 
     const nextQuestion = () => {
         if (index < questions.length - 1) {
@@ -18,6 +19,7 @@ const Quiz = ({ numQuestions, category, difficulty, type }) => {
         } else {
             setIsQuizFinished(true)
         }
+        setChosenAnswer('')
     }
 
     if (questions.length) {
@@ -36,7 +38,8 @@ const Quiz = ({ numQuestions, category, difficulty, type }) => {
                (
                     isQuizFinished ?
                     <QuizFinished   numQuestions={numQuestions} 
-                                    numCorrectAnswers={numCorrectAnswers} 
+                                    numCorrectAnswers={numCorrectAnswers}
+                                    onRouteChange={onRouteChange}
                     />
                     :
                     (   
@@ -52,6 +55,8 @@ const Quiz = ({ numQuestions, category, difficulty, type }) => {
                                             nextQuestion={nextQuestion}
                                             numCorrectAnswers={numCorrectAnswers}
                                             setNumCorrectAnswers={setNumCorrectAnswers}
+                                            chosenAnswer={chosenAnswer}
+                                            setChosenAnswer={setChosenAnswer}
                                 />
                             </article>
                         </article>
