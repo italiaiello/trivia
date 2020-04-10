@@ -1,6 +1,6 @@
 import React from 'react'
-import CorrectIcon from '../../images/correct.svg'
-import WrongIcon from '../../images/wrong.svg'
+import CorrectIcon from '../../../images/correct.svg'
+import WrongIcon from '../../../images/wrong.svg'
 
 const AnswerResult = ({     isAnswerCorrect, 
                             nextQuestion, 

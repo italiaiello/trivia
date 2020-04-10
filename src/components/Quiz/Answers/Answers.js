@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AnswerResult from './AnswerResult'
+import AnswerResult from '../AnswerResult/AnswerResult'
 
 const Answers = ({  incorrectAnswers, 
                     correctAnswer, 

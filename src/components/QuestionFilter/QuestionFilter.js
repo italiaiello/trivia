@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Categories from './Filters/Categories'
-import Difficulty from './Filters/Difficulty'
-import Type from './Filters/Type'
+import Categories from './Filters/Categories/Categories'
+import Difficulty from './Filters/Difficulty/Difficulty'
+import Type from './Filters/Type/Type'
 import Quiz from '../Quiz/Quiz';
 
 const QuestionFilter = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDataFetch } from '../../hooks/displayQuestions'
-import Answers from './Answers'
-import QuizFinished from './QuizFinished'
+import Answers from './Answers/Answers'
+import QuizFinished from './QuizFinished/QuizFinished'
 
 const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
     
