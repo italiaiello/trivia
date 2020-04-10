@@ -6,7 +6,8 @@ const AnswerResult = ({     isAnswerCorrect,
                             nextQuestion, 
                             setIsAnswerCorrect, 
                             chosenAnswer, 
-                            correctAnswer 
+                            correctAnswer,
+                            type,
                 }) => {
 
     const goToNextQuestion = (e) => {
@@ -23,15 +24,28 @@ const AnswerResult = ({     isAnswerCorrect,
                     <figure className="resultIcon">
                         <img src={CorrectIcon} alt="Correct answer icon" />
                     </figure>
-                    <p>{`${chosenAnswer} is correct, well done!`}</p>
+                    {
+                        type === 'multiple' ?
+                        <p>{`${chosenAnswer} is correct, well done!`}</p>
+                        :
+                        <p>{`That's correct, well done!`}</p>
+                    }
+                    
                 </article>
                 :
                 <article className="resultIconContainer">
                     <figure className="resultIcon">
                         <img src={WrongIcon} alt="Wrong answer icon" />
                     </figure>
-                    <p>{`Sorry, ${chosenAnswer} is incorrect.`}</p>
-                    <p>{`The correct answer was ${correctAnswer}`}</p>
+                    {
+                        type === 'multiple' ?
+                        <article>
+                            <p>{`Sorry, ${chosenAnswer} is incorrect.`}</p>
+                            <p>{`The correct answer was ${correctAnswer}`}</p>
+                        </article>
+                        :
+                        <p>{`Sorry, that's incorrect.`}</p>
+                    }
                 </article>
             }
             <button onClick={goToNextQuestion}>Next Question</button>

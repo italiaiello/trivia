@@ -82,6 +82,7 @@ const Answers = ({  incorrectAnswers,
                     )
                 }
             </article>
+            <article className="answerResult-container">
             {
                 isAnswerCorrect !== 'unanswered' &&
                 <AnswerResult isAnswerCorrect={isAnswerCorrect} 
@@ -89,8 +90,10 @@ const Answers = ({  incorrectAnswers,
                                 setIsAnswerCorrect={setIsAnswerCorrect}
                                 chosenAnswer={chosenAnswer}
                                 correctAnswer={correctAnswer}
+                                type={type}
                 />
             }
+            </article>
         </article>
     )
 }

@@ -44,10 +44,12 @@ const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
                     :
                     (   
                         questions.length &&
-                        <article className="questionContainer">
-                            <p>{`Questions Remaining: ${questionsRemaining}`}</p>
-                            <p>{`Correct Answers: ${numCorrectAnswers}`}</p>
-                            <p>{questions[index].question}</p>
+                        <section className="questionContainer">
+                            <article className="quizStatus">
+                                <p>{`Questions Remaining: ${questionsRemaining}`}</p>
+                                <p>{`Correct Answers: ${numCorrectAnswers}`}</p>
+                            </article>
+                            <p className="question">{questions[index].question}</p>
                             <article className="answers">
                                 <Answers    incorrectAnswers={questions[index].incorrect_answers} 
                                             correctAnswer={questions[index].correct_answer}
@@ -59,7 +61,7 @@ const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
                                             setChosenAnswer={setChosenAnswer}
                                 />
                             </article>
-                        </article>
+                        </section>
                     )
                )
                 

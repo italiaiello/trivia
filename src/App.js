@@ -9,9 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>Trivia</h1>
-      <div>
-        <QuestionFilter />
-      </div>
+      <QuestionFilter />
     </div>
   );
 }
