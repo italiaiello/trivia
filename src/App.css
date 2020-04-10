@@ -52,8 +52,12 @@ input, .filterContainer {
   height: 50px;
   padding: 0 30px;
   border: none;
-  background-color: white;
+  background-color: #2f919a;
   border-radius: 30px;
+}
+
+input::placeholder {
+  color: #015c64;
 }
 
 .filterContainer select {
@@ -68,7 +72,7 @@ input, .filterContainer {
   height: 40px;
   border: none;
   border-radius: 20px;
-  background-color: greenyellow;
+  background-color: #3ac44b;
 }
 
 /* Quiz */
@@ -195,4 +199,14 @@ input, .filterContainer {
 .resultIcon img {
   width: 100%;
   height: auto;
+}
+
+/* Quiz Finished */
+
+.restartButton {
+  width: 200px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #3ac44b;
+  border: none;
 }

@@ -24,7 +24,7 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, onRouteChange }) => {
                     )
                 )
             }
-            <button onClick={() => onRouteChange('home')}>Start Again</button>
+            <button className="restartButton" onClick={() => onRouteChange('home')}>Start Again</button>
         </article>
     )
 }

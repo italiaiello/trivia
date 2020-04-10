@@ -27,6 +27,8 @@ const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
         questions[index].question = questions[index].question.replace(/&#039;/g,"'")
         questions[index].question = questions[index].question.replace(/&eacute;/g,"é")
         questions[index].question = questions[index].question.replace(/&Aacute;/g,"Á")
+        questions[index].question = questions[index].question.replace(/&rsquo;/g,"'")
+        questions[index].question = questions[index].question.replace(/&lsquo;/g,"'")
     }
     
     return (
