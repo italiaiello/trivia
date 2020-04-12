@@ -1,7 +1,7 @@
 import React from 'react'
 import Emoji from '../Emoji/Emoji'
 
-const QuizFinished = ({ numQuestions, numCorrectAnswers, onRouteChange }) => {
+const QuizFinished = ({ numQuestions, numCorrectAnswers, resetQuiz }) => {
 
     const score = Math.round((numCorrectAnswers / numQuestions) * 100)
 
@@ -24,7 +24,7 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, onRouteChange }) => {
                     )
                 )
             }
-            <button className="restartButton" onClick={() => onRouteChange('home')}>Start Again</button>
+            <button className="restartButton" onClick={resetQuiz}>Start Again</button>
         </article>
     )
 }

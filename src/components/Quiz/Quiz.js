@@ -3,7 +3,13 @@ import { useDataFetch } from '../../hooks/displayQuestions'
 import Answers from './Answers/Answers'
 import QuizFinished from './QuizFinished/QuizFinished'
 
-const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
+const Quiz = ({ numQuestions, 
+                setNumQuestions,
+                category,
+                difficulty,
+                type,
+                onRouteChange 
+            }) => {
     
     const [isLoading, questions] = useDataFetch(`https://opentdb.com/api.php?amount=${numQuestions}${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)                                   
     const [index, setIndex] = useState(0)
@@ -22,7 +28,18 @@ const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
         setChosenAnswer('')
     }
 
+    const resetQuiz = () => {
+        setIndex(0)
+        setQuestionsRemaining(0)
+        setNumCorrectAnswers(0)
+        setIsQuizFinished(false)
+        setChosenAnswer('')
+        setNumQuestions(0)
+        onRouteChange('home')
+    }
+
     if (questions.length) {
+        console.log(unescape('&quot;&quot;&quot;'))
         questions[index].question = questions[index].question.replace(/&quot;/g,'"')
         questions[index].question = questions[index].question.replace(/&#039;/g,"'")
         questions[index].question = questions[index].question.replace(/&eacute;/g,"é")
@@ -41,7 +58,7 @@ const Quiz = ({ numQuestions, category, difficulty, type, onRouteChange }) => {
                     isQuizFinished ?
                     <QuizFinished   numQuestions={numQuestions} 
                                     numCorrectAnswers={numCorrectAnswers}
-                                    onRouteChange={onRouteChange}
+                                    resetQuiz={resetQuiz}
                     />
                     :
                     (   

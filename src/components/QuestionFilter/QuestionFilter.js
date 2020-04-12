@@ -29,10 +29,11 @@ const QuestionFilter = () => {
         e.preventDefault()
         if (numQuestions.toString().length === 0) {
             setIsFilterCorrect(false)
-        } else if ( numQuestions === 0 || isNaN(numQuestions) || 
-                    numQuestions > 50 || numQuestions < 0) {
+        } else if ( numQuestions <= 0 || isNaN(numQuestions) || 
+                    numQuestions > 50) {
             setIsFilterCorrect(false)
         } else {
+            setNumQuestions(Math.round(Number(numQuestions)))
             setIsFilterCorrect(true)
             onRouteChange('quiz')
         }
@@ -60,8 +61,9 @@ const QuestionFilter = () => {
                 </article>
                 :
                 <Quiz   numQuestions={numQuestions} 
-                        category={category} 
-                        difficulty={difficulty} 
+                        setNumQuestions={setNumQuestions}
+                        category={category}
+                        difficulty={difficulty}
                         type={type}
                         onRouteChange={onRouteChange}
                 />

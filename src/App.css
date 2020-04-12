@@ -1,11 +1,12 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-color: black;
+  background-image: linear-gradient(to bottom, #ff4ad8, black);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: Montserrat;
 }
 
 input, select, button {
@@ -52,12 +53,17 @@ input, .filterContainer {
   height: 50px;
   padding: 0 30px;
   border: none;
-  background-color: #2f919a;
+  /* background-color: #992c82; */
+  background-color: black;
   border-radius: 30px;
 }
 
+input, .filterContainer select {
+  color: #ff4ad8;
+}
+
 input::placeholder {
-  color: #015c64;
+  color: #992c82;
 }
 
 .filterContainer select {
@@ -72,7 +78,9 @@ input::placeholder {
   height: 40px;
   border: none;
   border-radius: 20px;
-  background-color: #3ac44b;
+  background-color: #992c82;
+  color: black;
+  font-weight: bold;
 }
 
 /* Quiz */
@@ -111,9 +119,8 @@ input::placeholder {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
 }
 
 .boolean-option, .multiple-option {
@@ -122,55 +129,23 @@ input::placeholder {
   border: none;
   border-radius: 30px;
   color: white;
-}
-
-.boolean-option:nth-child(1) {
-  background-color: green;
-}
-
-.boolean-option:nth-child(2) {
-  background-color: red;
-}
-
-.multiple-option:nth-child(1) {
-  background-color: #2326cc;
-}
-
-.multiple-option:nth-child(2) {
-  background-color: #f542cb;
-}
-
-.multiple-option:nth-child(3) {
-  background-color: #de8900;
-}
-
-.multiple-option:nth-child(4) {
-  background-color: #06a600;
+  background-color: black;
 }
 
 /* Answer Result */
 
+.answerResult {
+  color: white
+}
+
 .answerResult button {
-  width: 20%;
-  height: 30px;
+  width: 30%;
+  height: 40px;
   border: none;
-  border-radius: 20px;
-}
-
-.correct {
-  color: green;
-}
-
-.correct button {
-  background-color: green;
-}
-
-.wrong {
-  color: red
-}
-
-.wrong button {
-  background-color: #cc1010;
+  border-radius: 30px;
+  background-color: #992c82;
+  color: white;
+  font-weight: bold;
 }
 
 .resultIconContainer {
@@ -204,9 +179,11 @@ input::placeholder {
 /* Quiz Finished */
 
 .restartButton {
-  width: 200px;
-  height: 35px;
-  border-radius: 20px;
-  background-color: #3ac44b;
+  width: 30%;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #992c82;
   border: none;
+  color: white;
+  font-weight: bold;
 }
