@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.18b7b804.chunk.css",
-    "main.js": "/react-gh-pages/static/js/main.72f83f46.chunk.js",
-    "main.js.map": "/react-gh-pages/static/js/main.72f83f46.chunk.js.map",
-    "runtime-main.js": "/react-gh-pages/static/js/runtime-main.5bb8f8d6.js",
-    "runtime-main.js.map": "/react-gh-pages/static/js/runtime-main.5bb8f8d6.js.map",
-    "static/js/2.e62f91ab.chunk.js": "/react-gh-pages/static/js/2.e62f91ab.chunk.js",
-    "static/js/2.e62f91ab.chunk.js.map": "/react-gh-pages/static/js/2.e62f91ab.chunk.js.map",
-    "index.html": "/react-gh-pages/index.html",
-    "precache-manifest.6b5e4803c347fa10f3c41ffc5de41c02.js": "/react-gh-pages/precache-manifest.6b5e4803c347fa10f3c41ffc5de41c02.js",
-    "service-worker.js": "/react-gh-pages/service-worker.js",
-    "static/css/main.18b7b804.chunk.css.map": "/react-gh-pages/static/css/main.18b7b804.chunk.css.map",
-    "static/js/2.e62f91ab.chunk.js.LICENSE.txt": "/react-gh-pages/static/js/2.e62f91ab.chunk.js.LICENSE.txt",
-    "static/media/correct.svg": "/react-gh-pages/static/media/correct.d89daf44.svg",
-    "static/media/wrong.svg": "/react-gh-pages/static/media/wrong.2afee8d5.svg"
+    "main.css": "/trivia/static/css/main.18b7b804.chunk.css",
+    "main.js": "/trivia/static/js/main.096a05be.chunk.js",
+    "main.js.map": "/trivia/static/js/main.096a05be.chunk.js.map",
+    "runtime-main.js": "/trivia/static/js/runtime-main.ad58b66b.js",
+    "runtime-main.js.map": "/trivia/static/js/runtime-main.ad58b66b.js.map",
+    "static/js/2.e62f91ab.chunk.js": "/trivia/static/js/2.e62f91ab.chunk.js",
+    "static/js/2.e62f91ab.chunk.js.map": "/trivia/static/js/2.e62f91ab.chunk.js.map",
+    "index.html": "/trivia/index.html",
+    "precache-manifest.8104fe2f52154840ef3a1d682cddaaa9.js": "/trivia/precache-manifest.8104fe2f52154840ef3a1d682cddaaa9.js",
+    "service-worker.js": "/trivia/service-worker.js",
+    "static/css/main.18b7b804.chunk.css.map": "/trivia/static/css/main.18b7b804.chunk.css.map",
+    "static/js/2.e62f91ab.chunk.js.LICENSE.txt": "/trivia/static/js/2.e62f91ab.chunk.js.LICENSE.txt",
+    "static/media/correct.svg": "/trivia/static/media/correct.d89daf44.svg",
+    "static/media/wrong.svg": "/trivia/static/media/wrong.2afee8d5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5bb8f8d6.js",
+    "static/js/runtime-main.ad58b66b.js",
     "static/js/2.e62f91ab.chunk.js",
     "static/css/main.18b7b804.chunk.css",
-    "static/js/main.72f83f46.chunk.js"
+    "static/js/main.096a05be.chunk.js"
   ]
 }
