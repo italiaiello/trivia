@@ -221,7 +221,7 @@ input::placeholder {
 
   input, .filterContainer {
     width: 70%;
-    height: 12%;
+    height: 15%;
     padding: 0 15px;
   }
 
@@ -230,7 +230,7 @@ input::placeholder {
   }
 
   input, .filterContainer select {
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .filterButton {
@@ -243,7 +243,7 @@ input::placeholder {
   }
 
   .errorMessage p {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   /* Quiz */
