@@ -11,7 +11,7 @@ const Quiz = ({ numQuestions,
                 onRouteChange 
             }) => {
     
-    const [isLoading, questions] = useDataFetch(`https://opentdb.com/api.php?amount=${numQuestions}${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)                                   
+    const [isLoading, questions] = useDataFetch(`https://opentdb.com/api.php?amount=${numQuestions}&encode=url3986${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)                                   
     const [index, setIndex] = useState(0)
     const [questionsRemaining, setQuestionsRemaining] = useState(numQuestions)
     const [numCorrectAnswers, setNumCorrectAnswers] = useState(0)
@@ -43,14 +43,7 @@ const Quiz = ({ numQuestions,
     }
 
     if (questions.length) {
-        console.log(unescape('&quot;&quot;&quot;'))
-        questions[index].question = questions[index].question.replace(/&quot;/g,'"')
-        questions[index].question = questions[index].question.replace(/&#039;/g,"'")
-        questions[index].question = questions[index].question.replace(/&eacute;/g,"é")
-        questions[index].question = questions[index].question.replace(/&Aacute;/g,"Á")
-        questions[index].question = questions[index].question.replace(/&rsquo;/g,"'")
-        questions[index].question = questions[index].question.replace(/&lsquo;/g,"'")
-        questions[index].question = questions[index].question.replace(/&ouml;/g,"ö")
+        questions[index].question = unescape(questions[index].question)
     }
     
     return (

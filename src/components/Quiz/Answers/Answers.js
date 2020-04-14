@@ -27,12 +27,25 @@ const Answers = ({  incorrectAnswers,
             answers = [...currentAnswerOrder]
         } else {
             const randomIndex = getRandomInt(4)
-            answers[randomIndex] = correctAnswer
-            let incorrectIndex = 0;
+
+            const escapedCorrectAnswer = escape(correctAnswer)
+            console.log(correctAnswer, escapedCorrectAnswer)
+            if (escapedCorrectAnswer === correctAnswer) {
+                answers[randomIndex] = correctAnswer
+            } else {
+                answers[randomIndex] = unescape(correctAnswer)
+            }
+
+            let incorrectAnswerIndex = 0;
             for (let i = 0; i < answers.length; i++) {
                 if (answers[i] !== correctAnswer) {
-                    answers[i] = incorrectAnswers[incorrectIndex]
-                    incorrectIndex++
+                    const escapedString = escape(incorrectAnswers[incorrectAnswerIndex])
+                    if (escapedString === incorrectAnswers[incorrectAnswerIndex]) {
+                        answers[i] = incorrectAnswers[incorrectAnswerIndex]
+                    } else {
+                        answers[i] = unescape(incorrectAnswers[incorrectAnswerIndex])
+                    }
+                    incorrectAnswerIndex++
                 }
             }
         }
@@ -40,25 +53,13 @@ const Answers = ({  incorrectAnswers,
 
     if (incorrectAnswers.length) {
         for (let i = 0; i < incorrectAnswers.length; i++) {
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&quot;/g,'"')
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&#039;/g,"'")
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&eacute;/g,"é")
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&Aacute;/g,"Á")
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&amp;/g,"&")
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&rsquo;/g,"'")
-            incorrectAnswers[i] = incorrectAnswers[i].replace(/&lsquo;/g,"'")
+            console.log(incorrectAnswers[i])
+            incorrectAnswers[i] = unescape(incorrectAnswers[i])
         }
     }
 
     if (correctAnswer.length) {
-        correctAnswer = correctAnswer.replace(/&quot;/g,'"')
-        correctAnswer = correctAnswer.replace(/&#039;/g,"'")
-        correctAnswer = correctAnswer.replace(/&eacute;/g,"é")
-        correctAnswer = correctAnswer.replace(/&Aacute;/g,"Á")
-        correctAnswer = correctAnswer.replace(/&amp;/g,"&")
-        correctAnswer = correctAnswer.replace(/&rsquo;/g,"'")
-        correctAnswer = correctAnswer.replace(/&lsquo;/g,"'")
-        
+        correctAnswer = unescape(correctAnswer)
     }
 
     const checkAnswer = e => {
