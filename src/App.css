@@ -136,7 +136,7 @@ input::placeholder {
   border-radius: 30px;
   color: #ff4ad8;
   background-color: black;
-  font-family: Montserrat;
+  font-family: Montserrat, Helvetica;
   font-weight: bold;
 }
 
