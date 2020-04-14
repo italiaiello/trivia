@@ -37,6 +37,9 @@ const Answers = ({  incorrectAnswers,
             incorrectAnswers[i] = incorrectAnswers[i].replace(/&#039;/g,"'")
             incorrectAnswers[i] = incorrectAnswers[i].replace(/&eacute;/g,"é")
             incorrectAnswers[i] = incorrectAnswers[i].replace(/&Aacute;/g,"Á")
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&amp;/g,"&")
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&rsquo;/g,"'")
+            incorrectAnswers[i] = incorrectAnswers[i].replace(/&lsquo;/g,"'")
         }
     }
 
@@ -46,6 +49,9 @@ const Answers = ({  incorrectAnswers,
         correctAnswer = correctAnswer.replace(/&eacute;/g,"é")
         correctAnswer = correctAnswer.replace(/&Aacute;/g,"Á")
         correctAnswer = correctAnswer.replace(/&amp;/g,"&")
+        correctAnswer = correctAnswer.replace(/&rsquo;/g,"'")
+        correctAnswer = correctAnswer.replace(/&lsquo;/g,"'")
+        
     }
 
     const checkAnswer = e => {

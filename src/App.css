@@ -87,12 +87,14 @@ input::placeholder {
 
 .quizStatus {
   margin-bottom: 50px;
+  color: black;
+  font-weight: bold;
 }
 
 .question {
-  width: 60%;
+  width: 50%;
   margin: 10px auto;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 /* Answers */
@@ -128,8 +130,10 @@ input::placeholder {
   height: 50px;
   border: none;
   border-radius: 30px;
-  color: white;
+  color: #ff4ad8;
   background-color: black;
+  font-family: Montserrat;
+  font-weight: bold;
 }
 
 /* Answer Result */
@@ -178,12 +182,16 @@ input::placeholder {
 
 /* Quiz Finished */
 
+.quizFinished h3 {
+  color: black;
+}
+
 .restartButton {
   width: 30%;
   height: 50px;
   border-radius: 30px;
-  background-color: #992c82;
+  background-color: black;
   border: none;
-  color: white;
+  color: #ff4ad8;
   font-weight: bold;
 }

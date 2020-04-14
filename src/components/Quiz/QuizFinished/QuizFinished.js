@@ -6,7 +6,7 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, resetQuiz }) => {
     const score = Math.round((numCorrectAnswers / numQuestions) * 100)
 
     return (
-        <article>
+        <article className="quizFinished">
             <h3>{`You scored ${numCorrectAnswers}/${numQuestions}`}</h3>
             {
                 score < 50 ?
