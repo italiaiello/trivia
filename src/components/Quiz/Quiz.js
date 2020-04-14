@@ -17,6 +17,7 @@ const Quiz = ({ numQuestions,
     const [numCorrectAnswers, setNumCorrectAnswers] = useState(0)
     const [isQuizFinished, setIsQuizFinished] = useState(false)
     const [chosenAnswer, setChosenAnswer] = useState('')
+    const [currentAnswerOrder, setCurrentAnswerOrder] = useState([])
 
     const nextQuestion = () => {
         if (index < questions.length - 1) {
@@ -82,6 +83,8 @@ const Quiz = ({ numQuestions,
                                             setNumCorrectAnswers={setNumCorrectAnswers}
                                             chosenAnswer={chosenAnswer}
                                             setChosenAnswer={setChosenAnswer}
+                                            currentAnswerOrder={currentAnswerOrder}
+                                            setCurrentAnswerOrder={setCurrentAnswerOrder}
                                 />
                             </article>
                         </section>

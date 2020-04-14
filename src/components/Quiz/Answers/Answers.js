@@ -8,11 +8,14 @@ const Answers = ({  incorrectAnswers,
                     numCorrectAnswers, 
                     setNumCorrectAnswers, 
                     chosenAnswer,
-                    setChosenAnswer
+                    setChosenAnswer,
+                    currentAnswerOrder,
+                    setCurrentAnswerOrder
             }) => {
 
-    const answers = ['1', '2', '3', '4']
+    let answers = ['1', '2', '3', '4']
     const [isAnswerCorrect, setIsAnswerCorrect] = useState('unanswered')
+    const [hasSelectedAnswer, setHasSelectedAnswer] = useState(false)
     
 
     const getRandomInt = (max) => {
@@ -20,13 +23,17 @@ const Answers = ({  incorrectAnswers,
     }
 
     if (type === 'multiple') {
-        const randomIndex = getRandomInt(4)
-        answers[randomIndex] = correctAnswer
-        let incorrectIndex = 0;
-        for (let i = 0; i < answers.length; i++) {
-            if (answers[i] !== correctAnswer) {
-                answers[i] = incorrectAnswers[incorrectIndex]
-                incorrectIndex++
+        if (hasSelectedAnswer) {
+            answers = [...currentAnswerOrder]
+        } else {
+            const randomIndex = getRandomInt(4)
+            answers[randomIndex] = correctAnswer
+            let incorrectIndex = 0;
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] !== correctAnswer) {
+                    answers[i] = incorrectAnswers[incorrectIndex]
+                    incorrectIndex++
+                }
             }
         }
     }
@@ -63,7 +70,9 @@ const Answers = ({  incorrectAnswers,
         } else {
             setIsAnswerCorrect(false)
         }
+        setHasSelectedAnswer(true)
         setChosenAnswer(e.target.textContent)
+        setCurrentAnswerOrder(answers.slice())
     }
 
     return (
@@ -80,14 +89,18 @@ const Answers = ({  incorrectAnswers,
                         answers.map((answer, i) => {
                             return (
                                     <button key={i} 
-                                            className={answer.length < 50 
+                                            className={
+                                                answer.length < 50 
                                                     ? "multiple-option" 
                                                     : "multiple-option largeAnswer"
-                                                }
+                                            }
                                             onClick={checkAnswer}
                                     >
                                     {answer}
                                     </button>
+                                    
+                                    
+                                    
                             )
                         })
                     )
@@ -99,6 +112,7 @@ const Answers = ({  incorrectAnswers,
                 <AnswerResult isAnswerCorrect={isAnswerCorrect} 
                                 nextQuestion={nextQuestion} 
                                 setIsAnswerCorrect={setIsAnswerCorrect}
+                                setHasSelectedAnswer={setHasSelectedAnswer}
                                 chosenAnswer={chosenAnswer}
                                 correctAnswer={correctAnswer}
                                 type={type}

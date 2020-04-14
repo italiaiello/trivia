@@ -4,7 +4,8 @@ import WrongIcon from '../../../images/wrong.svg'
 
 const AnswerResult = ({     isAnswerCorrect, 
                             nextQuestion, 
-                            setIsAnswerCorrect, 
+                            setIsAnswerCorrect,
+                            setHasSelectedAnswer, 
                             chosenAnswer, 
                             correctAnswer,
                             type,
@@ -13,6 +14,7 @@ const AnswerResult = ({     isAnswerCorrect,
     const goToNextQuestion = (e) => {
         nextQuestion()
         setIsAnswerCorrect('unanswered')
+        setHasSelectedAnswer(false)
     }
 
     return (
