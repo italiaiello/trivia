@@ -5,9 +5,9 @@ import QuizFinished from './QuizFinished/QuizFinished'
 
 const Quiz = ({ numQuestions, 
                 setNumQuestions,
-                category,
-                difficulty,
-                type,
+                category, setCategory,
+                difficulty, setDifficulty,
+                type, setType,
                 onRouteChange 
             }) => {
     
@@ -35,6 +35,9 @@ const Quiz = ({ numQuestions,
         setIsQuizFinished(false)
         setChosenAnswer('')
         setNumQuestions(0)
+        setCategory('Any')
+        setDifficulty('Any')
+        setType('Any')
         onRouteChange('home')
     }
 
@@ -46,6 +49,7 @@ const Quiz = ({ numQuestions,
         questions[index].question = questions[index].question.replace(/&Aacute;/g,"Á")
         questions[index].question = questions[index].question.replace(/&rsquo;/g,"'")
         questions[index].question = questions[index].question.replace(/&lsquo;/g,"'")
+        questions[index].question = questions[index].question.replace(/&ouml;/g,"ö")
     }
     
     return (
@@ -69,7 +73,7 @@ const Quiz = ({ numQuestions,
                                 <p>{`Correct Answers: ${numCorrectAnswers}`}</p>
                             </article>
                             <p className="question">{questions[index].question}</p>
-                            <article className="answers">
+                            <article>
                                 <Answers    incorrectAnswers={questions[index].incorrect_answers} 
                                             correctAnswer={questions[index].correct_answer}
                                             type={questions[index].type}

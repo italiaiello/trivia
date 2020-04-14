@@ -63,8 +63,11 @@ const QuestionFilter = () => {
                 <Quiz   numQuestions={numQuestions} 
                         setNumQuestions={setNumQuestions}
                         category={category}
+                        setCategory={setCategory}
                         difficulty={difficulty}
+                        setDifficulty={setDifficulty}
                         type={type}
+                        setType={setType}
                         onRouteChange={onRouteChange}
                 />
             }

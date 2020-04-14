@@ -24,7 +24,7 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, resetQuiz }) => {
                     )
                 )
             }
-            <button className="restartButton" onClick={resetQuiz}>Start Again</button>
+            <button className="restartButton" onClick={resetQuiz}>Start another quiz</button>
         </article>
     )
 }

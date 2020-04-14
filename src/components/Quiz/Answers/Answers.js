@@ -67,7 +67,7 @@ const Answers = ({  incorrectAnswers,
     }
 
     return (
-        <article>
+        <article className="answers">
             <article className="optionsContainer">
                 {
                     type === 'boolean' ?
@@ -80,8 +80,13 @@ const Answers = ({  incorrectAnswers,
                         answers.map((answer, i) => {
                             return (
                                     <button key={i} 
-                                            className="multiple-option"
-                                            onClick={checkAnswer}>{answer}
+                                            className={answer.length < 50 
+                                                    ? "multiple-option" 
+                                                    : "multiple-option largeAnswer"
+                                                }
+                                            onClick={checkAnswer}
+                                    >
+                                    {answer}
                                     </button>
                             )
                         })
