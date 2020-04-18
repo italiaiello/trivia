@@ -27,24 +27,13 @@ const Answers = ({  incorrectAnswers,
             answers = [...currentAnswerOrder]
         } else {
             const randomIndex = getRandomInt(4)
-
-            const escapedCorrectAnswer = escape(correctAnswer)
-            console.log(correctAnswer, escapedCorrectAnswer)
-            if (escapedCorrectAnswer === correctAnswer) {
-                answers[randomIndex] = correctAnswer
-            } else {
-                answers[randomIndex] = unescape(correctAnswer)
-            }
+            answers[randomIndex] = unescape(correctAnswer)
 
             let incorrectAnswerIndex = 0;
+            let tempCorrectAnswer = unescape(correctAnswer)
             for (let i = 0; i < answers.length; i++) {
-                if (answers[i] !== correctAnswer) {
-                    const escapedString = escape(incorrectAnswers[incorrectAnswerIndex])
-                    if (escapedString === incorrectAnswers[incorrectAnswerIndex]) {
-                        answers[i] = incorrectAnswers[incorrectAnswerIndex]
-                    } else {
-                        answers[i] = unescape(incorrectAnswers[incorrectAnswerIndex])
-                    }
+                if (answers[i] !== correctAnswer && answers[i] !== tempCorrectAnswer) {
+                    answers[i] = incorrectAnswers[incorrectAnswerIndex]
                     incorrectAnswerIndex++
                 }
             }
