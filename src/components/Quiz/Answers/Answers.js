@@ -82,7 +82,7 @@ const Answers = ({  incorrectAnswers,
                                             className={
                                                 answer.length < 50 
                                                     ? "multiple-option" 
-                                                    : "multiple-option largeAnswer"
+                                                    : "multiple-option largeAnswer largeAnswerMobile"
                                             }
                                             onClick={checkAnswer}
                                     >
