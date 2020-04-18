@@ -33,7 +33,7 @@ const Answers = ({  incorrectAnswers,
             let tempCorrectAnswer = unescape(correctAnswer)
             for (let i = 0; i < answers.length; i++) {
                 if (answers[i] !== correctAnswer && answers[i] !== tempCorrectAnswer) {
-                    answers[i] = incorrectAnswers[incorrectAnswerIndex]
+                    answers[i] = unescape(incorrectAnswers[incorrectAnswerIndex])
                     incorrectAnswerIndex++
                 }
             }

@@ -41,7 +41,7 @@ const AnswerResult = ({     isAnswerCorrect,
                     </figure>
                     {
                         type === 'multiple' ?
-                        <article>
+                        <article className="wrongResultContainer">
                             <p>{`Sorry, ${chosenAnswer} is incorrect.`}</p>
                             <p>{`The correct answer was ${correctAnswer}`}</p>
                         </article>

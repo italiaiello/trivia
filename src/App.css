@@ -422,7 +422,7 @@ input::placeholder {
         font-size: 10px;
       }
 
-      .resultIconContainer p:nth-child(2) {
+      .wrongResultContainer p:nth-child(2) {
         display: none;
       }
 
