@@ -356,18 +356,30 @@ input::placeholder {
         margin-bottom: 10px;
       }
 
+      h2 {
+        font-size: 18px;
+      }
+
       /* Question Filter */
 
       .questionFilter {
         height: 70vh
       }
 
-      .questionFilter input {
+      input {
         font-size: 10px;
       }
 
       .filterContainer select {
         font-size: 10px;
+      }
+
+      input, .filterContainer {
+        width: 80%;
+      }
+
+      input, .filterContainer, .filterContainer select {
+        height: 40px;
       }
       
       .filterButton {
@@ -375,11 +387,15 @@ input::placeholder {
         height: 12%;
       }
 
+      .errorMessage {
+        font-size: 12px;
+      }
+
       /* Quiz */
 
       .quizStatus {
         margin-bottom: 10px;
-        font-size: 12px;
+        font-size: 10px;
       }
 
       .quizStatus p {
@@ -387,7 +403,7 @@ input::placeholder {
       }
 
       .question {
-        font-size: 14px;
+        font-size: 12px;
         width: 85%;
       }
 
