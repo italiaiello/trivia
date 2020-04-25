@@ -454,7 +454,30 @@ input::placeholder {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  /* Question Filter */
 
+  .questionFilter {
+    width: 80%;
+  }
+
+  .questionFilter input, .questionFilter .filterContainer {
+    width: 80%;
+  }
+
+  .filterButton {
+    width: 50%;
+    height: 40px;
+  }
+
+  /* Quiz */
+
+  .quizStatus {
+    margin-bottom: 20px;
+  }
+
+  .optionsContainer {
+    width: 85%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -465,9 +488,43 @@ input::placeholder {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+  /* Question Filter */
+
+  .questionFilter {
+    width: 50%;
+  }
+
+  /* Quiz */
+
+  .optionsContainer {
+    width: 60%;
+  }
+
+  /* Answer Result */
+
+  .answerResult button {
+    width: 25%;
+  }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  /* Question Filter */
 
+  .questionFilter {
+    width: 40%;
+  }
+
+  /* Quiz */
+
+  .optionsContainer {
+    width: 60%;
+  }
+
+  /* Answer Result */
+
+  .answerResult button {
+    width: 25%;
+  }
 }
