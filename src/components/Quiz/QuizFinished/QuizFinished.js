@@ -10,7 +10,7 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, resetQuiz }) => {
             <h3>{`You scored ${numCorrectAnswers}/${numQuestions}`}</h3>
             {
                 score < 50 ?
-                <p>Better luck next time <Emoji symbol="&#128577;" label="happy smiley" /></p>
+                <p id="failedText">Better luck next time <Emoji symbol="&#128577;" label="happy smiley" /></p>
                 :
                 (
                     score >= 50 && score < 70 ?

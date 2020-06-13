@@ -42,7 +42,6 @@ const Answers = ({  incorrectAnswers,
 
     if (incorrectAnswers.length) {
         for (let i = 0; i < incorrectAnswers.length; i++) {
-            console.log(incorrectAnswers[i])
             incorrectAnswers[i] = unescape(incorrectAnswers[i])
         }
     }
@@ -79,6 +78,7 @@ const Answers = ({  incorrectAnswers,
                         answers.map((answer, i) => {
                             return (
                                     <button key={i} 
+                                            id={`testButton${i}`}
                                             className={
                                                 answer.length < 50 
                                                     ? "multiple-option" 
