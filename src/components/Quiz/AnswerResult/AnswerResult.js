@@ -11,7 +11,7 @@ const AnswerResult = ({     isAnswerCorrect,
                             type,
                 }) => {
 
-    const goToNextQuestion = (e) => {
+    const goToNextQuestion = () => {
         nextQuestion()
         setIsAnswerCorrect('unanswered')
         setHasSelectedAnswer(false)
@@ -50,7 +50,7 @@ const AnswerResult = ({     isAnswerCorrect,
                     }
                 </article>
             }
-            <button onClick={goToNextQuestion}>Next Question</button>
+            <button id="goToNextQuestion" onClick={goToNextQuestion}>Next Question</button>
         </article>
     )
 }
