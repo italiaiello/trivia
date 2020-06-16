@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount, render } from 'enzyme'
 import Answers from './Answers'
 
 describe("Test.js", () => {
@@ -14,12 +14,12 @@ describe("Test.js", () => {
 
     beforeEach(() => {
         wrapper = shallow(<Answers incorrectAnswers={incorrectAnswers} 
-                                    correctAnswer={correctAnswer}
-                                    setIsAnswerCorrect={mockSetIsAnswerCorrect}
-                                    setChosenAnswer={mockSetChosenAnswer}
-                                    setHasSelectedAnswer={mockSetHasSelectedAnswer}
-                                    chosenAnswer={'chicken'}
-                                    />)
+            correctAnswer={correctAnswer}
+            setIsAnswerCorrect={mockSetIsAnswerCorrect}
+            setChosenAnswer={mockSetChosenAnswer}
+            setHasSelectedAnswer={mockSetHasSelectedAnswer}
+            chosenAnswer={'chicken'}
+            />)
     })
 
     it('checks if it Answers.js renders properly', () => {
@@ -27,7 +27,15 @@ describe("Test.js", () => {
     })
 
     // it('checks if functions are called', () => {
-    //     const button = wrapper.find('[id="testButton1"]')
+    //     wrapper = render(<Answers incorrectAnswers={incorrectAnswers} 
+    //         correctAnswer={correctAnswer}
+    //         setIsAnswerCorrect={mockSetIsAnswerCorrect}
+    //         setChosenAnswer={mockSetChosenAnswer}
+    //         setHasSelectedAnswer={mockSetHasSelectedAnswer}
+    //         chosenAnswer={'chicken'}
+    //         type={'boolean'}
+    //         />)
+    //     const button = wrapper.find("[id='boolean-option-1']")
     //     console.log(button)
     //     button.simulate('click')
     //     expect(mockSetIsAnswerCorrect.mock.calls.length).toBe(1)

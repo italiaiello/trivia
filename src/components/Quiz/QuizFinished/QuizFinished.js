@@ -14,13 +14,13 @@ const QuizFinished = ({ numQuestions, numCorrectAnswers, resetQuiz }) => {
                 :
                 (
                     score >= 50 && score < 70 ?
-                    <p>Congrats, you passed! <Emoji symbol="&#128522;" label="happy smiley" /></p>
+                    <p id="passedText">Congrats, you passed! <Emoji symbol="&#128522;" label="happy smiley" /></p>
                     :
                     (
                         score >= 70 && score < 85 ?
-                        <p>Well done! <Emoji symbol="&#128512;" label="happy smiley" /></p>
+                        <p id="wellDoneText">Well done! <Emoji symbol="&#128512;" label="happy smiley" /></p>
                         :
-                        <p>Wow! You aced it! <Emoji symbol="&#129299;" label="nerd smiley" /></p>
+                        <p id="acedItText">Wow! You aced it! <Emoji symbol="&#129299;" label="nerd smiley" /></p>
                     )
                 )
             }

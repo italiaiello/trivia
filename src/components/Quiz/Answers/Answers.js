@@ -70,7 +70,7 @@ const Answers = ({  incorrectAnswers,
                 {
                     type === 'boolean' ?
                     <article className="boolean-option-container">
-                        <button className="boolean-option" onClick={checkAnswer}>True</button>
+                        <button id="boolean-option-1" className="boolean-option" onClick={checkAnswer}>True</button>
                         <button className="boolean-option" onClick={checkAnswer}>False</button>
                     </article>
                     :
