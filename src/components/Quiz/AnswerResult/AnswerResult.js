@@ -28,9 +28,9 @@ const AnswerResult = ({     isAnswerCorrect,
                     </figure>
                     {
                         type === 'multiple' ?
-                        <p>{`${chosenAnswer} is correct, well done!`}</p>
+                        <p id="multipleCorrectText">{`${chosenAnswer} is correct, well done!`}</p>
                         :
-                        <p>{`That's correct, well done!`}</p>
+                        <p id="correctText">{`That's correct, well done!`}</p>
                     }
                     
                 </article>
@@ -41,12 +41,12 @@ const AnswerResult = ({     isAnswerCorrect,
                     </figure>
                     {
                         type === 'multiple' ?
-                        <article className="wrongResultContainer">
+                        <article id="wrongResultContainer" className="wrongResultContainer">
                             <p>{`Sorry, ${chosenAnswer} is incorrect.`}</p>
                             <p>{`The correct answer was ${correctAnswer}`}</p>
                         </article>
                         :
-                        <p>{`Sorry, that's incorrect.`}</p>
+                        <p id="incorrectText">{`Sorry, that's incorrect.`}</p>
                     }
                 </article>
             }

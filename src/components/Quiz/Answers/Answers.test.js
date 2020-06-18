@@ -26,22 +26,22 @@ describe("Test.js", () => {
         expect(wrapper).toMatchSnapshot()
     })
 
-    // it('checks if functions are called', () => {
-    //     wrapper = render(<Answers incorrectAnswers={incorrectAnswers} 
-    //         correctAnswer={correctAnswer}
-    //         setIsAnswerCorrect={mockSetIsAnswerCorrect}
-    //         setChosenAnswer={mockSetChosenAnswer}
-    //         setHasSelectedAnswer={mockSetHasSelectedAnswer}
-    //         chosenAnswer={'chicken'}
-    //         type={'boolean'}
-    //         />)
-    //     const button = wrapper.find("[id='boolean-option-1']")
-    //     console.log(button)
-    //     button.simulate('click')
-    //     expect(mockSetIsAnswerCorrect.mock.calls.length).toBe(1)
-    //     expect(mockSetChosenAnswer.mock.calls.length).toBe(1)
-    //     expect(mockSetHasSelectedAnswer.mock.calls.length).toBe(1)
+    it('checks if functions are called', () => {
+        wrapper = render(<Answers incorrectAnswers={incorrectAnswers} 
+            correctAnswer={correctAnswer}
+            setIsAnswerCorrect={mockSetIsAnswerCorrect}
+            setChosenAnswer={mockSetChosenAnswer}
+            setHasSelectedAnswer={mockSetHasSelectedAnswer}
+            chosenAnswer={'chicken'}
+            type={'boolean'}
+            
+            />)
+        const button = wrapper.find("[id='boolean-option-1']")["0"].children[0]
+        console.log(button)
+        // expect(mockSetIsAnswerCorrect.mock.calls.length).toBe(1)
+        // expect(mockSetChosenAnswer.mock.calls.length).toBe(1)
+        // expect(mockSetHasSelectedAnswer.mock.calls.length).toBe(1)
 
-    // })
+    })
 
 })

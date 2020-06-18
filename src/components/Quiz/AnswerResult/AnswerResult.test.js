@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, render } from 'enzyme'
 import AnswerResult from './AnswerResult'
 
 
@@ -29,6 +29,41 @@ describe("AnswerResult.js", () => {
         expect(mockNextQuestion.mock.calls.length).toBe(1)
         expect(mockSetIsAnswerCorrect.mock.calls.length).toBe(1)
         expect(mockSetHasSelectedAnswer.mock.calls.length).toBe(1)
+    })
+
+    it('checks if correct answer text is rendered correctly', () => {
+        wrapper = render(<AnswerResult 
+                            nextQuestion={mockNextQuestion} 
+                            setHasSelectedAnswer={mockSetHasSelectedAnswer}
+                            setIsAnswerCorrect={mockSetIsAnswerCorrect}
+                            isAnswerCorrect={true}
+                            type={"multiple"}
+                            chosenAnswer={"Chicken"}
+                        />)
+
+        expect(wrapper.find("[id='multipleCorrectText']")._root["0"].children[0].children[1].children[0].data).toBe('Chicken is correct, well done!')
+
+        wrapper = render(<AnswerResult 
+            nextQuestion={mockNextQuestion} 
+            setHasSelectedAnswer={mockSetHasSelectedAnswer}
+            setIsAnswerCorrect={mockSetIsAnswerCorrect}
+            isAnswerCorrect={false}
+            type={"multiple"}
+            chosenAnswer={"Chicken"}
+        />)
+
+        wrapper = render(<AnswerResult 
+            nextQuestion={mockNextQuestion} 
+            setHasSelectedAnswer={mockSetHasSelectedAnswer}
+            setIsAnswerCorrect={mockSetIsAnswerCorrect}
+            isAnswerCorrect={true}
+            chosenAnswer={"Chicken"}
+        />)
+
+        expect(wrapper.find("[id='correctText']")._root["0"].children[0].children[1].children[0].data).toBe("That's correct, well done!")
+
+        
+
     })
 })
 
