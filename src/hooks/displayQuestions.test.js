@@ -1,21 +1,25 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import { useDataFetch } from './displayQuestions'
+import { act, renderHook } from "@testing-library/react-hooks";
 
-function HookWrapper(props) {
-    const hook = props.hook ? props.hook() : undefined
-    return <div hook={hook} />
-}
+describe('useDataFetch', () => {
+    it('fetches questions from the url constructed from various parameters', async () => {
+        global.fetch = jest.fn()
 
-const url = `https://opentdb.com/api.php?amount=${'5'}&encode=url3986${""}${""}${""}`
+        await act(async () => renderHook(() => useDataFetch(5, 'Any', 'Any', 'Any')))
 
-it('should set init value', () => {
-    let wrapper = shallow(<HookWrapper hook={() => useDataFetch(`${url}`)} />)
-
-    let { hook } = wrapper.find('div').props()
-    let [isLoading, questions] = hook
-    expect(isLoading).toEqual(false)
-    expect(questions.length).toEqual(0)
-
-    wrapper = shallow(<HookWrapper hook={() => useDataFetch(`${url}`)} />)
+        expect(global.fetch).toBeCalledWith('https://opentdb.com/api.php?amount=5&encode=url3986')
+    })
 })
+
+describe('while fetching data', () => {
+    it.todo('handles loading state correctly')
+})
+
+describe('when received data successfully', () => {
+    it.todo('handles successful state correctly')
+})
+
+describe('with an error during request', () => {
+    it.todo('handles error state correctly')
+})
+

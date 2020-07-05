@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const useDataFetch = (url, dependencies) => {
+export const useDataFetch = (numQuestions, category, difficulty, type) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [questions, setQuestions] = useState([])
@@ -9,8 +9,7 @@ export const useDataFetch = (url, dependencies) => {
         setIsLoading(true)
 
         console.log('Fetching questions...')
-        console.log(url)
-        fetch(url)
+        fetch(`https://opentdb.com/api.php?amount=${numQuestions}&encode=url3986${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -22,7 +21,7 @@ export const useDataFetch = (url, dependencies) => {
                 setQuestions(["Couldn't find any questions"])
                 setIsLoading(false)
             })
-    }, [url])
+    }, [numQuestions, category, difficulty, type])
 
     return [isLoading, questions]
 

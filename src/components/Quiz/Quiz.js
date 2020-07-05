@@ -3,15 +3,14 @@ import { useDataFetch } from '../../hooks/displayQuestions'
 import Answers from './Answers/Answers'
 import QuizFinished from './QuizFinished/QuizFinished'
 
-const Quiz = ({ numQuestions, 
-                setNumQuestions,
+const Quiz = ({ numQuestions, setNumQuestions,
                 category, setCategory,
                 difficulty, setDifficulty,
                 type, setType,
                 onRouteChange 
             }) => {
     
-    const [isLoading, questions] = useDataFetch(`https://opentdb.com/api.php?amount=${numQuestions}&encode=url3986${category !== 'Any' ? `&category=${category}` : ""}${difficulty !== 'Any' ? `&difficulty=${difficulty}` : ""}${type !== 'Any' ? `&type=${type}` : ""}`)                                   
+    const [isLoading, questions] = useDataFetch(numQuestions, category, difficulty, type)                                  
     const [index, setIndex] = useState(0)
     const [questionsRemaining, setQuestionsRemaining] = useState(numQuestions)
     const [numCorrectAnswers, setNumCorrectAnswers] = useState(0)
