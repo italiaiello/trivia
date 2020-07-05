@@ -37,7 +37,6 @@ describe("Test.js", () => {
             
             />)
         const button = wrapper.find("[id='boolean-option-1']")["0"].children[0]
-        console.log(button)
         // expect(mockSetIsAnswerCorrect.mock.calls.length).toBe(1)
         // expect(mockSetChosenAnswer.mock.calls.length).toBe(1)
         // expect(mockSetHasSelectedAnswer.mock.calls.length).toBe(1)
