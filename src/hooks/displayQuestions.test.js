@@ -1,6 +1,14 @@
 import { useDataFetch } from './displayQuestions'
 import { act, renderHook } from "@testing-library/react-hooks";
 
+const getControlledPromise = () => {
+    let deferred;
+    const promise = new Promise((resolve, reject) => {
+        deferred = {resolve, reject}
+    })
+    return {deferred, promise}
+}
+
 describe('useDataFetch', () => {
     it('fetches questions from the url constructed from various parameters', async () => {
         global.fetch = jest.fn()
@@ -12,11 +20,34 @@ describe('useDataFetch', () => {
 })
 
 describe('while fetching data', () => {
-    it.todo('handles loading state correctly')
+    it('handles loading state correctly', async () => {
+        const {deferred, promise} = getControlledPromise()
+
+        global.fetch = jest.fn(() => promise)
+
+        const {result, waitForNextUpdate} = renderHook(useDataFetch)
+
+        expect(result.current.isLoading).toBe(true)
+        deferred.resolve()
+
+        await waitForNextUpdate()
+
+        expect(result.current.isLoading).toBe(false)
+    })
 })
 
 describe('when received data successfully', () => {
-    it.todo('handles successful state correctly')
+    it('handles successful state correctly', async () => {
+        const {deferred, promise} = getControlledPromise()
+        global.fetch = jest.fn(() => promise)
+
+        const {result, waitForNextUpdate} = renderHook(useDataFetch)
+        deferred.resolve({json: () => ({results: [1, 2, 3, 4, 5]})})
+
+        await waitForNextUpdate()
+
+        expect(result.current.questions.length).toEqual(5)
+    })
 })
 
 describe('with an error during request', () => {

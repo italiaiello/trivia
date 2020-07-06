@@ -10,7 +10,7 @@ const Quiz = ({ numQuestions, setNumQuestions,
                 onRouteChange 
             }) => {
     
-    const [isLoading, questions] = useDataFetch(numQuestions, category, difficulty, type)                                  
+    const { isLoading, questions, error } = useDataFetch(numQuestions, category, difficulty, type)                                  
     const [index, setIndex] = useState(0)
     const [questionsRemaining, setQuestionsRemaining] = useState(numQuestions)
     const [numCorrectAnswers, setNumCorrectAnswers] = useState(0)
@@ -43,6 +43,10 @@ const Quiz = ({ numQuestions, setNumQuestions,
 
     if (questions.length) {
         questions[index].question = unescape(questions[index].question)
+    }
+
+    if (error) {
+        return <>Network Error</>
     }
     
     return (
